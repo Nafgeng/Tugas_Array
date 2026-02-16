@@ -6,60 +6,76 @@ class Mahasiswa {
         this.nim = nim;
         this.nama = nama;
     }
-    public String toString() { return "[" + nim + "] " + nama; }
+    public String toString() {
+        return "NIM: " + nim + ", Nama: " + nama;
+    }
 }
 
 public class Main {
-    static Mahasiswa[] arr = new Mahasiswa[10];
-    static int size = 0;
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            System.out.println("\n--- MENU (Size: " + size + "/10) ---");
-            System.out.print("1-3: Insert (Beg, Pos, End) | 4-7: Delete (Beg, Pos, End, First Occ) | 8: Show | 9: Exit\nPilihan: ");
-            int choice = sc.nextInt();
-            if (choice == 9) break;
+        int kapasitas = 10;
+        Mahasiswa[] arrayMhs = new Mahasiswa[kapasitas];
+        int count = 0;
 
-            if (choice >= 1 && choice <= 3) {
-                if (size >= 10) { System.out.println("Penuh!"); continue; }
+        while (true) {
+            System.out.println("\n--- MENU (Count: " + count + ") ---");
+            System.out.println("1. Insert Beg | 2. Insert Pos | 3. Insert End");
+            System.out.println("4. Delete Beg | 5. Delete Pos | 6. Delete End");
+            System.out.println("7. Delete First Occ | 8. Show | 9. Exit");
+            System.out.print("Pilih: ");
+            int menu = sc.nextInt();
+
+            if (menu == 9) break;
+
+            // Logika Insert
+            if (menu >= 1 && menu <= 3) {
+                if (count >= kapasitas) {
+                    System.out.println("Array Penuh!");
+                    continue;
+                }
                 System.out.print("NIM: "); String nim = sc.next();
                 System.out.print("Nama: "); String nama = sc.next();
                 Mahasiswa m = new Mahasiswa(nim, nama);
 
-                if (choice == 1) insertAt(0, m);
-                else if (choice == 3) insertAt(size, m);
-                else {
-                    System.out.print("Posisi (1-" + (size+1) + "): ");
-                    insertAt(sc.nextInt() - 1, m);
+                int pos = (menu == 1) ? 0 : (menu == 3) ? count : -1;
+                if (menu == 2) {
+                    System.out.print("Posisi (0-" + count + "): ");
+                    pos = sc.nextInt();
                 }
-            } else if (choice >= 4 && choice <= 7) {
-                if (size == 0) { System.out.println("Kosong!"); continue; }
+
+                if (pos >= 0 && pos <= count) {
+                    for (int i = count; i > pos; i--) arrayMhs[i] = arrayMhs[i-1];
+                    arrayMhs[pos] = m;
+                    count++;
+                }
+            } 
+            // Logika Delete
+            else if (menu >= 4 && menu <= 7) {
+                if (count == 0) {
+                    System.out.println("Kosong!");
+                    continue;
+                }
                 int idx = -1;
-                if (choice == 4) idx = 0;
-                else if (choice == 6) idx = size - 1;
-                else if (choice == 5) { System.out.print("Posisi: "); idx = sc.nextInt() - 1; }
-                else {
+                if (menu == 4) idx = 0;
+                else if (menu == 6) idx = count - 1;
+                else if (menu == 5) {
+                    System.out.print("Hapus posisi: "); idx = sc.nextInt();
+                } else {
                     System.out.print("Cari NIM: "); String target = sc.next();
-                    for(int i=0; i<size; i++) if(arr[i].nim.equals(target)) { idx = i; break; }
+                    for(int i=0; i<count; i++) {
+                        if(arrayMhs[i].nim.equals(target)) { idx = i; break; }
+                    }
                 }
-                deleteAt(idx);
-            } else if (choice == 8) {
-                for(int i=0; i<size; i++) System.out.println((i+1) + ". " + arr[i]);
+
+                if (idx >= 0 && idx < count) {
+                    for (int i = idx; i < count - 1; i++) arrayMhs[i] = arrayMhs[i+1];
+                    arrayMhs[--count] = null;
+                }
+            } else if (menu == 8) {
+                for (int i = 0; i < count; i++) System.out.println(i + ". " + arrayMhs[i]);
             }
         }
-    }
-
-    static void insertAt(int pos, Mahasiswa m) {
-        if (pos < 0 || pos > size) return;
-        for (int i = size; i > pos; i--) arr[i] = arr[i-1];
-        arr[pos] = m;
-        size++;
-    }
-
-    static void deleteAt(int pos) {
-        if (pos < 0 || pos >= size) return;
-        for (int i = pos; i < size - 1; i++) arr[i] = arr[i+1];
-        arr[--size] = null;
+        sc.close();
     }
 }
