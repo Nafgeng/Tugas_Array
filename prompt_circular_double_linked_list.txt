@@ -14,4 +14,6 @@ tolong dibuat agar berita ditampilkan menyamping dan berita selalu looping terus
 
 untuk yg java mengapa saat ingin menghentikan loop nya malah menghentikan sistem yang dimana harusnya saat sistem dihentikan maka akan ditawarkan untuk memilih pilihan lagi
 
+apakah dijava tidak bisa seperti python?
+
 Menggunakan Gemini
