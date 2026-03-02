@@ -10,4 +10,8 @@ MENU:
 4. Tampil berita tertentu (berdasarkan nomor urut)
 5. Exit
 
+tolong dibuat agar berita ditampilkan menyamping dan berita selalu looping terus sampaiharus di berhentikan secara manual
+
+untuk yg java mengapa saat ingin menghentikan loop nya malah menghentikan sistem yang dimana harusnya saat sistem dihentikan maka akan ditawarkan untuk memilih pilihan lagi
+
 Menggunakan Gemini
