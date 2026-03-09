@@ -1,0 +1,19 @@
+PROMPT 1:
+Buatlah program (Java & Python) untuk mengevaluasi sebuah ekspresi aritmatika dengan menggunakan struktur data Stack (boleh Array/Linked List), dengan ketentuan sebagai berikut:
+
+1. Input merupakan sebuah ekspresi aritmatika (infix)
+2. Output meliputi:
+postfix expression,
+step by step perhitungan (berdasarkan proses push-pop stack), dan
+hasil akhir perhitungan
+
+Jadi nanti inputnya saya akan memberi aritmatika, nah outputnya akan postfix menggunakan algoritma shunting yard, kemudian mengevaluasi postfix tersebut menggunakan stack
+
+PROMPT 2:
+bukan begitu bro, jadi aritmatika awalnya saya yang nentuin
+
+PROMPT 3:
+btw ni aritmatika gw g selalu itu ya, bisa ganti2 coba kasih gw yg bener gmn
+
+PROMPT 4:
+okeh sudah benar, nah sekarang bikin kalau sudah ada output, saya bisa, meng input lagi
