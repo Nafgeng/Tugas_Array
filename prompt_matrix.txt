@@ -1,0 +1,13 @@
+Buat program dengan MENU:
+1-a. Sort the matrix row-wise
+1-b. Sort the matrix column-wise
+2-a. Rotate Matrix Clockwise by 1
+2-b. Rotate Matrix Counter-Clockwise by 1
+2-c. Rotate a matrix by 90
+2-d. Rotate a matrix by 180
+3-a. Row-wise traversal of matrix
+3-b. Column-wise traversal of matrix
+4. Print matrix in spiral form
+5. Transpose matrix
+6. Quit
+tolong kerjakan tugas diatas dengan baik dan benar serta menggunakan python dan java

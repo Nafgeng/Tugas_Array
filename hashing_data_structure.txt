@@ -1,0 +1,8 @@
+Buat program (Java/Python) menggunakan hash table untuk menyimpan himpunan data numerik dengan fitur sebagai berikut:
+1. INPUT DATA
+2. HAPUS DATA
+3. CARI DATA
+
+catatan:
+-Saat program dijalankan, data 100 angka random (tidak boleh sama) sudah diinputkan.
+-Gunakan salah satu collision techniques untuk menangani tabrakan.
